@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>watchwire.cc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600&family=VT323&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#06080a;--bone:#e6e1d3;--signal:#ff3a2a;--dim:#6c7a78;box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--bone);touch-action:none;cursor:crosshair}
+body{display:grid;place-items:center;font-family:'Chakra Petch',system-ui,sans-serif;
+ padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:5;
+ background:radial-gradient(ellipse at 50% 45%,transparent 35%,rgba(0,0,0,.85) 100%),
+ repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 3px)}
+body::after{content:"";position:fixed;left:0;right:0;height:18vh;top:-18vh;pointer-events:none;z-index:4;
+ background:linear-gradient(180deg,transparent,rgba(255,58,42,.06),transparent);animation:scan 7s linear infinite}
+@keyframes scan{to{transform:translateY(130vh)}}
+.glow{position:fixed;left:50%;top:44%;width:80vmin;height:50vmin;transform:translate(-50%,-50%);
+ background:radial-gradient(closest-side,rgba(255,58,42,.22),transparent);filter:blur(30px);animation:pulse 4s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.5}}
+.hud{position:fixed;z-index:6;font-family:'VT323',monospace;font-size:22px;letter-spacing:.06em;color:var(--dim);
+ top:calc(env(safe-area-inset-top,0px) + 22px)}
+.hud.l{left:26px;display:flex;align-items:center;gap:10px;color:var(--bone)}
+.hud.r{right:26px}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--signal);animation:rec 1.2s steps(1) infinite}
+@keyframes rec{50%{opacity:0}}
+.c{position:fixed;width:28px;height:28px;border:2px solid rgba(230,225,211,.35);z-index:6}
+.c.tl{top:calc(env(safe-area-inset-top,0px) + 12px);left:12px;border-right:0;border-bottom:0}
+.c.tr{top:calc(env(safe-area-inset-top,0px) + 12px);right:12px;border-left:0;border-bottom:0}
+.c.bl{bottom:calc(env(safe-area-inset-bottom,0px) + 12px);left:12px;border-right:0;border-top:0}
+.c.br{bottom:calc(env(safe-area-inset-bottom,0px) + 12px);right:12px;border-left:0;border-top:0}
+main{position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;gap:clamp(14px,3.5dvh,34px);width:100%;padding:0 20px}
+.float{animation:float 6s ease-in-out infinite;will-change:transform}
+@keyframes float{50%{transform:translateY(-14px)}}
+#eye{display:block;width:min(86vw,560px);max-height:44dvh;height:auto;filter:drop-shadow(0 0 28px rgba(255,58,42,.45))}
+h1{font-weight:600;font-size:clamp(34px,8vw,84px);letter-spacing:.02em;line-height:1;text-align:center;
+ text-shadow:0 0 22px rgba(255,58,42,.35),2px 0 rgba(255,58,42,.5),-2px 0 rgba(60,200,255,.35)}
+p{font-family:'VT323',monospace;font-size:clamp(20px,3.2vw,28px);letter-spacing:.3em;color:var(--dim);text-align:center}
+p::after{content:"_";animation:rec 1s steps(1) infinite;color:var(--signal)}
+@media (prefers-reduced-motion:reduce){.float,body::after,.glow{animation:none}}
+</style>
+</head>
+<body>
+<div class="glow"></div>
+<div class="c tl"></div><div class="c tr"></div><div class="c bl"></div><div class="c br"></div>
+<div class="hud l"><span class="dot"></span>rec</div>
+<div class="hud r" id="tc">00:00:00</div>
+
+<main>
+ <div class="float">
+ <svg id="eye" viewBox="0 0 400 240" role="img" aria-label="a watching eye">
+  <defs>
+   <clipPath id="shape"><path d="M12,120 Q200,-30 388,120 Q200,270 12,120Z"/></clipPath>
+   <radialGradient id="scl" cx="50%" cy="50%" r="60%">
+    <stop offset="0" stop-color="#ece7d8"/><stop offset=".65" stop-color="#b9a897"/><stop offset="1" stop-color="#3a1b1b"/>
+   </radialGradient>
+   <radialGradient id="iris" cx="50%" cy="50%" r="50%">
+    <stop offset="0" stop-color="#ffb347"/><stop offset=".45" stop-color="#e5301f"/><stop offset=".85" stop-color="#6a0d0a"/><stop offset="1" stop-color="#1a0202"/>
+   </radialGradient>
+   <linearGradient id="lid" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#000" stop-opacity=".85"/><stop offset=".45" stop-color="#000" stop-opacity="0"/>
+    <stop offset=".6" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".6"/>
+   </linearGradient>
+  </defs>
+  <g id="ball" style="transform-origin:200px 120px">
+   <g clip-path="url(#shape)">
+    <rect width="400" height="240" fill="url(#scl)"/>
+    <g fill="none" stroke="#b3201a" stroke-width=".8" opacity=".55">
+     <path d="M14,122 Q70,110 112,104 M60,116 Q80,128 104,132 M386,118 Q330,112 292,108 M340,114 Q318,130 296,134"/>
+     <path d="M90,60 Q110,90 128,110 M310,62 Q290,92 272,112 M110,190 Q125,160 134,134 M292,188 Q276,160 268,134"/>
+    </g>
+    <g id="irisG">
+     <circle r="64" fill="url(#iris)" id="ir"/>
+     <g id="fibers" stroke="#ffd08a" stroke-linecap="round"></g>
+     <circle r="64" fill="none" stroke="#150101" stroke-width="5"/>
+     <circle id="pupil" r="22" fill="#000"/>
+     <ellipse cx="-20" cy="-22" rx="9" ry="5" fill="#fff" opacity=".8" transform="rotate(-30 -20 -22)"/>
+    </g>
+    <rect width="400" height="240" fill="url(#lid)"/>
+   </g>
+   <path d="M12,120 Q200,-30 388,120 Q200,270 12,120Z" fill="none" stroke="#0b0505" stroke-width="5"/>
+  </g>
+ </svg>
+ </div>
+ <h1>watchwire.cc</h1>
+ <p>coming soon</p>
+</main>
+
+<script>
+(function(){
+ var NS="http://www.w3.org/2000/svg";
+ var eye=document.getElementById('eye'),irisG=document.getElementById('irisG'),pupil=document.getElementById('pupil'),
+     ball=document.getElementById('ball'),fib=document.getElementById('fibers'),tc=document.getElementById('tc');
+ for(var i=0;i<56;i++){
+  var a=i/56*Math.PI*2,r1=24+Math.random()*8,r2=44+Math.random()*18;
+  var l=document.createElementNS(NS,'line');
+  l.setAttribute('x1',Math.cos(a)*r1);l.setAttribute('y1',Math.sin(a)*r1);
+  l.setAttribute('x2',Math.cos(a)*r2);l.setAttribute('y2',Math.sin(a)*r2);
+  l.setAttribute('stroke-width',(.5+Math.random()*1.2).toFixed(2));
+  l.setAttribute('opacity',(.12+Math.random()*.4).toFixed(2));
+  fib.appendChild(l);
+ }
+ var tx=0,ty=0,cx=0,cy=0,pr=22,tpr=22,sy=1,tsy=1,blinkAt=0,lastMove=0,wanderAt=0;
+ var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ function aim(x,y){
+  var b=eye.getBoundingClientRect(),mx=b.left+b.width/2,my=b.top+b.height/2;
+  var dx=(x-mx)/(b.width/2),dy=(y-my)/(b.height/2),d=Math.hypot(dx,dy)||1,k=Math.min(d,1)/d;
+  tx=dx*k*88;ty=dy*k*34;
+  tpr=d<.35?13:(d<.9?19:24);
+  lastMove=performance.now();
+ }
+ addEventListener('pointermove',function(e){aim(e.clientX,e.clientY)});
+ addEventListener('pointerdown',function(e){aim(e.clientX,e.clientY);tpr=30;setTimeout(function(){tpr=14},0)});
+ function blink(){
+  tsy=.04;setTimeout(function(){tsy=1},110);
+  if(Math.random()<.25)setTimeout(function(){tsy=.04;setTimeout(function(){tsy=1},110)},260);
+ }
+ function schedule(){blinkAt=performance.now()+2200+Math.random()*4500}
+ schedule();
+ function frame(t){
+  if(t-lastMove>3000&&t>wanderAt){
+   tx=(Math.random()*2-1)*80;ty=(Math.random()*2-1)*28;tpr=16+Math.random()*8;
+   wanderAt=t+700+Math.random()*1800;
+  }
+  if(!reduce&&t>blinkAt){blink();schedule()}
+  cx+=(tx-cx)*.14;cy+=(ty-cy)*.14;pr+=(tpr-pr)*.12;sy+=(tsy-sy)*.45;
+  irisG.setAttribute('transform','translate('+(200+cx).toFixed(2)+' '+(120+cy).toFixed(2)+')');
+  pupil.setAttribute('r',pr.toFixed(2));
+  ball.style.transform='scaleY('+sy.toFixed(3)+')';
+  requestAnimationFrame(frame);
+ }
+ requestAnimationFrame(frame);
+ var s0=Date.now();
+ function clock(){
+  var s=Math.floor((Date.now()-s0)/1000)+3*3600+17*60,p=function(n){return String(n).padStart(2,'0')};
+  tc.textContent=p(Math.floor(s/3600)%100)+':'+p(Math.floor(s/60)%60)+':'+p(s%60);
+ }
+ clock();setInterval(clock,1000);
+})();
+</script>
+</body>
+</html>
