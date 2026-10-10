@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://watchwire.cc/</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://watchwire.cc/fuckyou/</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!--
+    Add each page here once it exists and is live. Copy a <url> block,
+    change the <loc> and <lastmod>. Planned pages (uncomment when built):
+
+  <url><loc>https://watchwire.cc/tutorials.html</loc><lastmod>YYYY-MM-DD</lastmod></url>
+  <url><loc>https://watchwire.cc/censorship.html</loc><lastmod>YYYY-MM-DD</lastmod></url>
+  <url><loc>https://watchwire.cc/article.html</loc><lastmod>YYYY-MM-DD</lastmod></url>
+  <url><loc>https://watchwire.cc/forum.html</loc><lastmod>YYYY-MM-DD</lastmod></url>
+  <url><loc>https://watchwire.cc/news.html</loc><lastmod>YYYY-MM-DD</lastmod></url>
+  -->
+
+</urlset>
