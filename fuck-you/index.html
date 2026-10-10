@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fuck You | watchwire.cc</title>
+<link rel="icon" href="../1.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #000;
+    --line: #2a2a2a;
+    --text: #f2f2f2;
+    --muted: #8a8a8a;
+    --red: #ff0000;
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--bg); }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Jost", "Century Gothic", "Segoe UI", sans-serif;
+    font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 24px 40px;
+  }
+
+  .wrap { width: 100%; max-width: 1040px; }
+
+  /* top bar: back link + logo */
+  .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 48px; }
+  .top a { color: var(--muted); text-decoration: none; font-size: 1rem; letter-spacing: .1em; transition: color .18s; }
+  .top a:hover, .top a:focus-visible { color: var(--red); outline: none; }
+  .top img { width: 56px; height: 56px; display: block; }
+
+  /* title + date */
+  .head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 28px; }
+  .head h1 { margin: 0; font-weight: 400; font-size: clamp(2.2rem, 6vw, 3.4rem); line-height: 1; letter-spacing: -0.01em; }
+  .date { color: var(--red); font-weight: 400; font-size: 1.05rem; letter-spacing: .15em; }
+
+  /* person card: photo left, details right */
+  .person {
+    display: grid;
+    grid-template-columns: minmax(220px, 340px) 1fr;
+    gap: 14px;
+  }
+  .slot {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #0a0a0a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 1rem;
+  }
+  .slot::before { content: attr(data-label); }
+  .slot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .portrait { aspect-ratio: 4 / 5; }
+
+  .box {
+    display: flex;
+    flex-direction: column;
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+  }
+  .box h2 { margin: 0; font-weight: 400; font-size: clamp(1.9rem, 4vw, 2.6rem); line-height: 1.05; letter-spacing: -0.01em; }
+  .title { margin: 10px 0 0; color: var(--muted); font-size: 1.15rem; }
+  .reason { margin-top: auto; padding-top: 20px; border-top: 1px solid var(--line); }
+  .label { display: block; margin-bottom: 8px; color: var(--red); font-weight: 400; font-size: .98rem; }
+  .reason p { margin: 0; font-size: 1.25rem; line-height: 1.4; max-width: 34ch; }
+  .person .box { min-height: 100%; gap: 28px; }
+
+  /* long reasoning */
+  .long { margin-top: 14px; padding: 28px; border: 1px solid var(--line); border-radius: 10px; }
+  .long p { margin: 0 0 1em; max-width: 68ch; font-size: 1.1rem; line-height: 1.65; color: #cfcfcf; }
+  .long p:last-child { margin-bottom: 0; }
+
+  /* photos: add as many .slot items as you like */
+  .photos { margin-top: 14px; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+  .photos .slot { aspect-ratio: 4 / 3; }
+
+  footer { margin-top: 56px; color: var(--muted); font-size: .9rem; letter-spacing: .2em; }
+
+  @media (max-width: 640px) {
+    .person { grid-template-columns: 1fr; }
+    .portrait { aspect-ratio: 1 / 1; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="top">
+    <a href="../index.html">&larr; Back</a>
+    <img src="../2.png" alt="">
+  </div>
+
+  <div class="head">
+    <h1>Fuck You</h1>
+    <!-- Shows today's date automatically. To set a fixed date, replace the
+         empty span with text, e.g. <span class="date">10 October 2026</span> -->
+    <span class="date">10 October 2026</span>
+  </div>
+
+  <!--
+    FILL IN: swap the placeholder text below.
+    Portrait: put <img src="person.jpg" alt="Name"> inside the .portrait div.
+  -->
+  <section class="person">
+    <div class="slot portrait" data-label="Face photo">
+      <img src="pete.jpg" alt="Name">
+    </div>
+
+    <div class="box">
+      <div>
+        <h2>Pete Hegseth</h2>
+        <p class="title">U.S. Secretary of Defense</p>
+      </div>
+      <div class="reason">
+        <span class="label">Why</span>
+        <p>For deciding to livestream and publicly broadcast the execution of the Fort Hood shooter by firing squad, turning state-sanctioned capital punishment into a digital spectacle.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="long">
+    <span class="label">The full story</span>
+    <p>Defense Secretary Pete Hegseth announced that the upcoming execution of Nidal Hasan—the former Army major convicted of the 2009 mass shooting at Fort Hood—will be conducted publicly via a livestreamed firing squad in Texas. This marks a radical departure from modern American penal practice, representing what critics describe as the first public execution in the U.S. in nearly a century.</p>
+    <p>The decision has drawn sharp condemnation from lawmakers, human rights advocates, and military experts who argue that turning an execution into a public spectacle degrades institutional dignity, promotes a culture of vengeance, and provides adversaries with immediate propaganda. Rather than upholding justice with solemnity, the move transforms a somber penal event into content for social media and public consumption.</p>
+  </section>
+
+  <!-- Copy a .slot block to add more photos. Put <img src="..." alt="..."> inside. -->
+  <section class="photos">
+    <div class="slot" data-label="Photo 1"><img src="1.avif" alt=""></div>
+    <div class="slot" data-label="Photo 2"><img src="2.webp" alt=""></div>
+    <!--<div class="slot" data-label="Photo 3"><img src="photo3.jpg" alt=""></div>-->
+  </section>
+
+</div>
+
+<footer>watchwire.cc</footer>
+
+<script>
+  document.querySelectorAll("[data-today]").forEach(function (el) {
+    el.textContent = new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+  });
+</script>
+</body>
+</html>
