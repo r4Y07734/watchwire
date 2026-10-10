@@ -3,11 +3,42 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>watchwire.cc</title>
+<title>WatchWire – Online Privacy, Censorship &amp; Surveillance</title>
+<meta name="description" content="Guides, news and daily reads on online privacy, censorship and surveillance. Learn how to stay private and get past blocks.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://watchwire.cc/">
+
+<!-- Open Graph / social previews. Best image size is 1200x630. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WatchWire">
+<meta property="og:title" content="WatchWire – Online Privacy, Censorship &amp; Surveillance">
+<meta property="og:description" content="Guides, news and daily reads on online privacy, censorship and surveillance.">
+<meta property="og:url" content="https://watchwire.cc/">
+<meta property="og:image" content="https://watchwire.cc/2.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WatchWire – Online Privacy, Censorship &amp; Surveillance">
+<meta name="twitter:description" content="Guides, news and daily reads on online privacy, censorship and surveillance.">
+<meta name="twitter:image" content="https://watchwire.cc/2.png">
+
 <link rel="icon" href="1.png" type="image/png">
+<link rel="apple-touch-icon" href="1.png">
+<link rel="preload" as="image" href="2.png" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "watchwire.cc",
+  "url": "https://watchwire.cc/",
+  "description": "Guides, news and daily reads on online privacy, censorship and surveillance.",
+  "inLanguage": "en"
+}
+</script>
+
 <style>
   :root {
     --bg: #000;
@@ -40,6 +71,7 @@
     letter-spacing: 0.4em;
     padding-left: 0.4em;
   }
+  header .tag { margin: 14px 0 0; color: var(--muted); font-size: 1.05rem; letter-spacing: .05em; }
 
   /* The grid fills itself: add as many .box items as you like, no CSS needed. */
   main {
@@ -67,7 +99,7 @@
     line-height: 1.05;
     letter-spacing: -0.01em;
   }
-  .box p { margin: 0; max-width: 28ch; font-size: 1.1rem; line-height: 1.4; color: var(--muted); transition: color .18s; }
+  .box p { margin: 0 0 24px; max-width: 28ch; font-size: 1.1rem; line-height: 1.4; color: var(--muted); transition: color .18s; }
   /* bottom line of each box: what you'll find inside */
   .box .more {
     margin-top: auto;
@@ -78,8 +110,6 @@
     color: var(--red);
     transition: color .18s, border-color .18s;
   }
-  .box p + .more { margin-top: auto; }
-  .box p { margin-bottom: 24px; }
   .box .more:empty { display: none; }
 
   /* hover: subtle dark-red tint and a red border */
@@ -95,52 +125,54 @@
 <body>
 
 <header>
-    <img src="2.png">
+    <img src="2.png" width="168" height="168" alt="WatchWire logo">
     <h1>WATCHWIRE.CC</h1>
+    <p class="tag">Privacy, freedom of speech and justice.</p>
 </header>
 
 <main>
   <!--
-    TO ADD A BOX: copy one <a class="box"> block below, paste it anywhere in
-    this list, and change the link, title, description and bottom line.
+    TO ADD A LIVE BOX: copy the Fuck You block below (an <a class="box"> with a real href).
+    COMING-SOON BOXES are <div class="box"> so they are not dead links.
+    When a page is ready, change <div ...> to <a href="your-page"> (and the closing tag).
     Leave <span class="more"></span> empty to hide the bottom line.
   -->
 
   <a class="box" href="fuck-you">
     <h2>Fuck You</h2>
-    <p>The person you we all should say fuck you to today.</p>
-    <span class="more">10.10.2026</span>
+    <p>The person we all should say fuck you to today.</p>
+    <time class="more" datetime="2026-10-10">10.10.2026</time>
   </a>
 
-  <a class="box" href="#">
+  <div class="box">
     <h2>Tutorials</h2>
     <p>Hands-on guides for staying private and getting past blocks.</p>
     <span class="more">Coming soon...</span>
-  </a>
+  </div>
 
-  <a class="box" href="#">
+  <div class="box">
     <h2>Censorship</h2>
     <p>See what gets blocked, why it happens, and the ways around it.</p>
     <span class="more">Coming soon...</span>
-  </a>
+  </div>
 
-  <a class="box" href="#">
+  <div class="box">
     <h2>Article of the day</h2>
     <p>One hand-picked read, new every day.</p>
     <span class="more">Coming soon...</span>
-  </a>
+  </div>
 
-  <a class="box" href="#">
+  <div class="box">
     <h2>Forum</h2>
     <p>Ask questions, share what works, and learn from others.</p>
     <span class="more">Coming soon...</span>
-  </a>
+  </div>
 
-  <a class="box" href="#">
+  <div class="box">
     <h2>News</h2>
     <p>The latest on surveillance, privacy and online freedom.</p>
     <span class="more">Coming soon...</span>
-  </a>
+  </div>
 </main>
 
 <footer>watchwire.cc</footer>
